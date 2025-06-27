@@ -4,6 +4,119 @@
 
 ---
 
+## English
+
+### Project Introduction
+
+An open-source project focused on AI gaming battles using Large Language Models (LLM) technology. Implements intelligent gameplay in classic games with multiple game modes:
+- 🤖 **AI vs AI**: Two different AI models competing against each other
+- 👤 **Human vs AI**: Human players versus AI opponents
+- 👥 **Multi-model Comparison**: Testing strategic capabilities of different AI models
+
+### 🌟 Key Features
+
+- **Multi-model Support**: Supports OpenAI GPT-4o, GPT-4o-mini, and other models
+- **Real-time Battles**: Clear console interface with real-time game status
+- **Intelligent Decision Making**: AI analyzes game situations and makes strategic decisions
+- **Easy Extension**: Modular design for easy addition of new games
+
+### 🎯 Implemented Games
+
+#### 1. Gomoku (Five in a Row)
+Location: `/gomoku`
+
+Classic Gomoku game supporting AI vs AI mode.
+
+**Game Features:**
+- Standard 15×15 board
+- First to connect five wins
+- Maximum 100 moves per player
+- Intelligent defense and attack strategies
+
+**Technical Highlights:**
+- Clear board visualization
+- Smart position validation and conflict detection
+- Detailed game state tracking
+- Multi-retry mechanism ensuring effective AI responses
+
+**Running Example:**
+```
+=============================================
+  Player 1 (X): 5/100 | Player 2 (O): 4/100
+            Turn: Player 1 (gpt-4o-mini)           
+=============================================
+   0  1  2  3  4  5  6  7  8  9  10 11 12 13 14
+  +---------------------------------------------+
+0 |  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . |
+1 |  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . |
+2 |  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . |
+...
+6 |  .  .  .  O  X  O  X  X  O  .  .  .  .  .  . |
+7 |  .  .  .  .  .  .  O  X  O  .  .  .  .  .  . |
+...
+```
+
+### 🚀 Quick Start
+
+#### Requirements
+- Python 3.7+
+- OpenAI API Key
+
+#### Installation & Running
+
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/brycewang-stanford/llm-play-games.git
+   cd llm-play-games
+   ```
+
+2. **Set up API Key**
+   ```bash
+   # Method 1: Environment Variable
+   export OPENAI_API_KEY="your-api-key-here"
+   
+   # Method 2: Input during runtime
+   # The program will prompt for API key input
+   ```
+
+3. **Run Gomoku Game**
+   ```bash
+   cd gomoku
+   python3 gomoku.py
+   ```
+
+### 📋 Roadmap
+
+- [ ] **Chinese Chess**: Traditional Chinese chess AI battles
+- [ ] **Go**: 9×9 or 19×19 Go game battles
+- [ ] **Chess**: Classic international chess
+- [ ] **Tic-Tac-Toe**: Simple strategy game
+- [ ] **Connect Four**: Vertical connection game
+- [ ] **Human vs AI Mode**: Support for human player participation
+
+### 🛠️ Tech Stack
+
+- **Language**: Python 3.7+
+- **AI Models**: OpenAI GPT-4o / GPT-4o-mini
+- **API**: OpenAI API
+- **Architecture**: Modular design
+
+### 🤝 Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+### 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
 ## 中文
 
 ### 项目简介
@@ -117,105 +230,9 @@
 
 ---
 
-## English
-
-### Project Introduction
-
-An open-source project focused on AI gaming battles using Large Language Models (LLM) technology. Implements intelligent gameplay in classic games with multiple game modes:
-- 🤖 **AI vs AI**: Two different AI models competing against each other
-- 👤 **Human vs AI**: Human players versus AI opponents
-- 👥 **Multi-model Comparison**: Testing strategic capabilities of different AI models
-
-### 🌟 Key Features
-
-- **Multi-model Support**: Supports OpenAI GPT-4o, GPT-4o-mini, and other models
-- **Real-time Battles**: Clear console interface with real-time game status
-- **Intelligent Decision Making**: AI analyzes game situations and makes strategic decisions
-- **Easy Extension**: Modular design for easy addition of new games
-
-### 🎯 Implemented Games
-
-#### 1. Gomoku (Five in a Row)
-Location: `/gomoku`
-
-Classic Gomoku game supporting AI vs AI mode.
-
-**Game Features:**
-- Standard 15×15 board
-- First to connect five wins
-- Maximum 100 moves per player
-- Intelligent defense and attack strategies
-
-**Technical Highlights:**
-- Clear board visualization
-- Smart position validation and conflict detection
-- Detailed game state tracking
-- Multi-retry mechanism ensuring effective AI responses
-
-### 🚀 Quick Start
-
-#### Requirements
-- Python 3.7+
-- OpenAI API Key
-
-#### Installation & Running
-
-1. **Clone the Repository**
-   ```bash
-   git clone https://github.com/brycewang-stanford/llm-play-games.git
-   cd llm-play-games
-   ```
-
-2. **Set up API Key**
-   ```bash
-   # Method 1: Environment Variable
-   export OPENAI_API_KEY="your-api-key-here"
-   
-   # Method 2: Input during runtime
-   # The program will prompt for API key input
-   ```
-
-3. **Run Gomoku Game**
-   ```bash
-   cd gomoku
-   python3 gomoku.py
-   ```
-
-### 📋 Roadmap
-
-- [ ] **Chinese Chess**: Traditional Chinese chess AI battles
-- [ ] **Go**: 9×9 or 19×19 Go game battles
-- [ ] **Chess**: Classic international chess
-- [ ] **Tic-Tac-Toe**: Simple strategy game
-- [ ] **Connect Four**: Vertical connection game
-- [ ] **Human vs AI Mode**: Support for human player participation
-
-### 🛠️ Tech Stack
-
-- **Language**: Python 3.7+
-- **AI Models**: OpenAI GPT-4o / GPT-4o-mini
-- **API**: OpenAI API
-- **Architecture**: Modular design
-
-### 🤝 Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-### 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
 ### 📞 Contact
 
 Project Link: [https://github.com/brycewang-stanford/llm-play-games](https://github.com/brycewang-stanford/llm-play-games)
 
-⭐ 如果这个项目对你有帮助，请给它一个星标！
 ⭐ If this project helps you, please give it a star!
+⭐ 如果这个项目对你有帮助，请给它一个星标！
