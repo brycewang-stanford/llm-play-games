@@ -6,10 +6,10 @@
 
 | Game | Mode | Player 1 | Player 2 | Score | Win Rate | Status |
 |------|------|----------|----------|-------|----------|--------|
-| Gomoku | AI vs AI | GPT-4o | GPT-4o-mini | 100:0 | 100% | ✅ Tested |
-| Gomoku | Human vs AI | Human | GPT-4o | 1:10 | 9.1% | ✅ Tested |
-| Word Chain | AI vs AI | GPT-4o | GPT-4o-mini | -:- | - | 🚧 Testing |
-| Word Chain | Human vs AI | Human | GPT-4o | -:- | - | 🚧 Testing |
+| Gomoku (五子棋) | AI vs AI | GPT-4o | GPT-4o-mini | 100:0 | 100% | ✅ Tested |
+| Gomoku (五子棋) | Human vs AI | Human | GPT-4o | 1:10 | 9.1% | ✅ Tested |
+| Word Chain (词语接龙) | AI vs AI | GPT-4o | GPT-4o-mini | -:- | - | 🚧 Testing |
+| Word Chain (词语接龙) | Human vs AI | Human | GPT-4o | -:- | - | 🚧 Testing |
 | Chinese Chess | AI vs AI | - | - | -:- | - | 🚧 Coming Soon |
 | Go | AI vs AI | - | - | -:- | - | 🚧 Coming Soon |
 | Chess | AI vs AI | - | - | -:- | - | 🚧 Coming Soon |
