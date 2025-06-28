@@ -1,21 +1,23 @@
 import time
+import sys
 from ai_player import get_ai_word, initialize_client_manually, validate_word_chain
 
-MAX_ROUNDS = 50
+MAX_ROUNDS = 100
 PLAYER_MODELS = {"ai": "gpt-4o"}  # AI as the opponent
 
 class WordChainGame:
-    def __init__(self):
+    def __init__(self, max_rounds=MAX_ROUNDS):
         self.game_history = []
         self.current_word = ""
         self.rule_type = ""
         self.round_count = 0
+        self.max_rounds = max_rounds
         self.scores = {"human": 0, "ai": 0}
         
     def display_game_state(self):
         """Display current game state"""
         print("\n" + "="*60)
-        print(f"🎯 Word Chain Game - Round {self.round_count + 1}/{MAX_ROUNDS}")
+        print(f"🎯 Word Chain Game - Round {self.round_count + 1}/{self.max_rounds}")
         print(f"📊 Score - Human: {self.scores['human']} | AI: {self.scores['ai']}")
         print(f"📜 Rule: {self.get_rule_description()}")
         print("="*60)
@@ -184,6 +186,18 @@ class WordChainGame:
 
 def main():
     """Main game function"""
+    # Parse command line arguments
+    max_rounds = MAX_ROUNDS
+    if len(sys.argv) > 1:
+        try:
+            max_rounds = int(sys.argv[1])
+            if max_rounds <= 0:
+                print("Error: Maximum rounds must be a positive integer.")
+                return
+            print(f"🎮 Custom max rounds: {max_rounds}")
+        except ValueError:
+            print("Error: Invalid max rounds argument. Using default value.")
+    
     print("🎯 Word Chain Game - Human vs AI 🤖")
     print("=" * 50)
     
@@ -191,25 +205,25 @@ def main():
         print("Unable to initialize OpenAI client. Game cannot start.")
         return
     
-    game = WordChainGame()
+    game = WordChainGame(max_rounds)
     
     if not game.setup_game():
         return
     
     print(f"\n🎮 Game started with rule: {game.get_rule_description()}")
     print(f"🎯 Starting word: {game.current_word}")
-    print(f"🎲 Maximum rounds: {MAX_ROUNDS}")
+    print(f"🎲 Maximum rounds: {game.max_rounds}")
     print("\nLet's play! 🚀")
     
     # Game loop - alternating turns
     human_turn = True  # Human starts after the initial word
     
-    while game.round_count < MAX_ROUNDS:
+    while game.round_count < game.max_rounds:
         if not game.play_round(human_turn):
             break
         human_turn = not human_turn  # Switch turns
         
-        if game.round_count >= MAX_ROUNDS:
+        if game.round_count >= game.max_rounds:
             print("\n⏰ Maximum rounds reached!")
             break
     
