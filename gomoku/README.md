@@ -8,11 +8,16 @@
 
 ### 游戏简介
 
-这是一个五子棋AI对战游戏，支持两个不同的OpenAI模型进行智能对战。游戏采用标准的15×15棋盘，先连成五子者获胜。
+这是一个五子棋AI对战游戏，支持两种对战模式：
+1. **AI vs AI**: 两个不同的OpenAI模型进行智能对战
+2. **Human vs AI**: 人类玩家与AI对战
+
+游戏采用标准的15×15棋盘，先连成五子者获胜。
 
 ### 🌟 特色功能
 
 - **AI vs AI对战**: GPT-4o vs GPT-4o-mini 智能对战
+- **Human vs AI对战**: 人类玩家与AI智能对战
 - **实时游戏显示**: 清晰的控制台界面显示棋盘状态
 - **智能决策**: AI能够分析棋局并做出策略性决策
 - **错误处理**: 多重验证确保AI移动的有效性
@@ -48,8 +53,15 @@
    ```
 
 3. **启动游戏**
+   
+   **AI vs AI 对战模式:**
    ```bash
    python3 gomoku.py
+   ```
+   
+   **Human vs AI 对战模式:**
+   ```bash
+   python3 gomoku_human_vs_ai.py
    ```
 
 ### 🎯 游戏截图
@@ -76,7 +88,8 @@
 ### 🛠️ 技术实现
 
 #### 核心文件
-- `gomoku.py`: 主游戏逻辑和界面
+- `gomoku.py`: AI vs AI 主游戏逻辑和界面
+- `gomoku_human_vs_ai.py`: Human vs AI 对战模式
 - `ai_player.py`: AI决策和OpenAI API交互
 
 #### 关键特性
@@ -99,11 +112,16 @@
 
 ### Game Introduction
 
-This is a Gomoku AI battle game featuring two different OpenAI models competing against each other. The game uses a standard 15×15 board where the first player to connect five pieces wins.
+This is a Gomoku AI battle game featuring two game modes:
+1. **AI vs AI**: Two different OpenAI models competing against each other
+2. **Human vs AI**: Human players versus AI opponents
+
+The game uses a standard 15×15 board where the first player to connect five pieces wins.
 
 ### 🌟 Key Features
 
 - **AI vs AI Battle**: GPT-4o vs GPT-4o-mini intelligent gameplay
+- **Human vs AI Battle**: Human players compete against AI opponents
 - **Real-time Display**: Clear console interface showing board state
 - **Smart Decision Making**: AI analyzes board positions and makes strategic decisions
 - **Error Handling**: Multiple validation layers ensure valid AI moves
@@ -139,14 +157,22 @@ This is a Gomoku AI battle game featuring two different OpenAI models competing 
    ```
 
 3. **Start the Game**
+   
+   **AI vs AI Battle Mode:**
    ```bash
    python3 gomoku.py
+   ```
+   
+   **Human vs AI Battle Mode:**
+   ```bash
+   python3 gomoku_human_vs_ai.py
    ```
 
 ### 🛠️ Technical Implementation
 
 #### Core Files
-- `gomoku.py`: Main game logic and interface
+- `gomoku.py`: AI vs AI main game logic and interface
+- `gomoku_human_vs_ai.py`: Human vs AI battle mode
 - `ai_player.py`: AI decision making and OpenAI API interaction
 
 #### Key Features

@@ -25,13 +25,14 @@ An open-source project focused on AI gaming battles using Large Language Models 
 #### 1. Gomoku (Five in a Row)
 Location: `/gomoku`
 
-Classic Gomoku game supporting AI vs AI mode.
+Classic Gomoku game supporting both AI vs AI and Human vs AI modes.
 
 **Game Features:**
 - Standard 15×15 board
 - First to connect five wins
 - Maximum 100 moves per player
 - Intelligent defense and attack strategies
+- Two game modes: AI vs AI and Human vs AI
 
 **Technical Highlights:**
 - Clear board visualization
@@ -80,9 +81,17 @@ Classic Gomoku game supporting AI vs AI mode.
    ```
 
 3. **Run Gomoku Game**
+   
+   **AI vs AI Mode:**
    ```bash
    cd gomoku
    python3 gomoku.py
+   ```
+   
+   **Human vs AI Mode:**
+   ```bash
+   cd gomoku
+   python3 gomoku_human_vs_ai.py
    ```
 
 ### 📋 Roadmap
@@ -92,7 +101,7 @@ Classic Gomoku game supporting AI vs AI mode.
 - [ ] **Chess**: Classic international chess
 - [ ] **Tic-Tac-Toe**: Simple strategy game
 - [ ] **Connect Four**: Vertical connection game
-- [ ] **Human vs AI Mode**: Support for human player participation
+- [ ] **Human vs AI Mode**: Support for human player participation ✅ (Available in Gomoku)
 
 ### 🛠️ Tech Stack
 
@@ -138,13 +147,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 #### 1. 五子棋 (Gomoku)
 位置：`/gomoku`
 
-经典的五子棋游戏，支持AI vs AI模式。
+经典的五子棋游戏，支持AI vs AI和Human vs AI两种模式。
 
 **游戏特点：**
 - 15×15 标准棋盘
 - 先连成五子者获胜
 - 每位玩家最多100步
 - 智能防守与进攻策略
+- 两种游戏模式：AI vs AI 和 Human vs AI
 
 **技术亮点：**
 - 清晰的棋盘可视化显示
@@ -193,9 +203,17 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
    ```
 
 3. **运行五子棋游戏**
+   
+   **AI vs AI 模式:**
    ```bash
    cd gomoku
    python3 gomoku.py
+   ```
+   
+   **人机对战模式:**
+   ```bash
+   cd gomoku
+   python3 gomoku_human_vs_ai.py
    ```
 
 ### 📋 后续计划
@@ -205,7 +223,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [ ] **国际象棋 (Chess)**: 经典国际象棋
 - [ ] **井字棋 (Tic-Tac-Toe)**: 简单策略游戏
 - [ ] **四子棋 (Connect Four)**: 垂直连线游戏
-- [ ] **人机对战模式**: 支持人类玩家参与
+- [ ] **人机对战模式**: 支持人类玩家参与 ✅ (五子棋已实现)
 
 ### 🛠️ 技术栈
 
