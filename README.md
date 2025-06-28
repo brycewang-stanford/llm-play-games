@@ -2,6 +2,20 @@
 
 [English](#english) | [中文](#中文)
 
+## 🏆 Battle Results | 对战结果
+
+| Game | Mode | Player 1 | Player 2 | Score | Win Rate | Status |
+|------|------|----------|----------|-------|----------|--------|
+| Gomoku | AI vs AI | GPT-4o | GPT-4o-mini | 100:0 | 100% | ✅ Tested |
+| Gomoku | Human vs AI | Human | GPT-4o | 1:10 | 9.1% | ✅ Tested |
+| Chinese Chess | AI vs AI | - | - | -:- | - | 🚧 Coming Soon |
+| Go | AI vs AI | - | - | -:- | - | 🚧 Coming Soon |
+| Chess | AI vs AI | - | - | -:- | - | 🚧 Coming Soon |
+
+> **Note**: Test results are based on multiple game sessions. Individual results may vary.
+> 
+> **说明**: 测试结果基于多轮游戏对战。单次结果可能有所不同。
+
 ---
 
 ## English
