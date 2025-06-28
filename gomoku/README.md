@@ -4,6 +4,125 @@
 
 ---
 
+## English
+
+### Game Introduction
+
+This is a Gomoku AI battle game featuring two game modes:
+1. **AI vs AI**: Two different OpenAI models competing against each other
+2. **Human vs AI**: Human players versus AI opponents
+
+The game uses a standard 15×15 board where the first player to connect five pieces wins.
+
+### 🌟 Key Features
+
+- **AI vs AI Battle**: GPT-4o vs GPT-4o-mini intelligent gameplay
+- **Human vs AI Battle**: Human players compete against AI opponents
+- **Real-time Display**: Clear console interface showing board state
+- **Smart Decision Making**: AI analyzes board positions and makes strategic decisions
+- **Error Handling**: Multiple validation layers ensure valid AI moves
+- **Game Statistics**: Real-time display of each player's move count
+
+### 🎮 Game Rules
+
+1. **Board**: Standard 15×15 Gomoku board
+2. **Win Condition**: First to connect 5 pieces horizontally, vertically, or diagonally
+3. **Move Limit**: Maximum 100 moves per player
+4. **Piece Symbols**: Player 1 = X, Player 2 = O
+
+### 🚀 Quick Start
+
+#### Requirements
+- Python 3.7+
+- OpenAI API Key
+
+#### Running the Game
+
+1. **Install Dependencies**
+   ```bash
+   pip install openai
+   ```
+
+2. **Set up API Key**
+   ```bash
+   # Method 1: Environment Variable
+   export OPENAI_API_KEY="your-api-key-here"
+   
+   # Method 2: Runtime Input
+   # The game will prompt you to enter your API key
+   ```
+
+3. **Start the Game**
+   
+   **AI vs AI Battle Mode:**
+   ```bash
+   python3 gomoku.py
+   ```
+   
+   **Human vs AI Battle Mode:**
+   ```bash
+   python3 gomoku_human_vs_ai.py
+   ```
+
+### 🎯 Game Screenshot
+
+```
+=============================================
+  You (X): 5/100 | AI (O): 4/100
+=============================================
+   0  1  2  3  4  5  6  7  8  9  10 11 12 13 14
+  +---------------------------------------------+
+0 |  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . |
+1 |  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . |
+2 |  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . |
+3 |  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . |
+4 |  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . |
+5 |  .  .  .  .  X  X  .  .  .  .  .  .  .  .  . |
+6 |  .  O  O  O  X  O  X  X  O  X  O  O  .  .  . |
+7 |  .  .  .  .  .  .  O  X  O  .  .  .  .  .  . |
+8 |  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . |
+...
+```
+
+### 🛠️ Technical Implementation
+
+#### Core Files
+- `gomoku.py`: AI vs AI main game logic and interface
+- `gomoku_human_vs_ai.py`: Human vs AI battle mode
+- `ai_player.py`: AI decision making and OpenAI API interaction
+
+#### Key Features
+- **Intelligent Prompt System**: Provides clear board state descriptions to AI
+- **Position Validation**: Ensures AI chooses valid and unoccupied positions
+- **Error Retry**: Up to 3 retry attempts for handling AI response errors
+- **Game State Tracking**: Real-time monitoring of game progress and win conditions
+
+### 🎲 AI Battle Strategies
+
+The AI demonstrates strategic capabilities including:
+- **Offensive Strategy**: Attempts to form threatening connections
+- **Defensive Strategy**: Blocks opponent's five-in-a-row attempts
+- **Position Optimization**: Selects strategic board positions
+- **Board Analysis**: Understands current game state
+
+### 📈 Game Flow
+
+1. **Initialization**: Set up board and initialize AI clients
+2. **Turn-based Play**: Alternating moves between Player 1 (X) and Player 2 (O)
+3. **Move Validation**: Verify each AI move is legal and valid
+4. **Win Detection**: Check for five-in-a-row after each move
+5. **Game End**: Declare winner or draw condition
+
+### 🔧 Customization
+
+You can easily customize the game by:
+- Changing AI models in `PLAYER_MODELS` dictionary
+- Adjusting board size (default: 15×15)
+- Modifying move limits
+- Adding new AI providers beyond OpenAI
+
+---
+
 ## 中文
 
 ### 游戏简介
@@ -105,107 +224,6 @@
 - **防守策略**: 阻止对手形成五连
 - **位置优化**: 选择战略性位置
 - **局面分析**: 理解当前棋局状态
-
----
-
-## English
-
-### Game Introduction
-
-This is a Gomoku AI battle game featuring two game modes:
-1. **AI vs AI**: Two different OpenAI models competing against each other
-2. **Human vs AI**: Human players versus AI opponents
-
-The game uses a standard 15×15 board where the first player to connect five pieces wins.
-
-### 🌟 Key Features
-
-- **AI vs AI Battle**: GPT-4o vs GPT-4o-mini intelligent gameplay
-- **Human vs AI Battle**: Human players compete against AI opponents
-- **Real-time Display**: Clear console interface showing board state
-- **Smart Decision Making**: AI analyzes board positions and makes strategic decisions
-- **Error Handling**: Multiple validation layers ensure valid AI moves
-- **Game Statistics**: Real-time display of each player's move count
-
-### 🎮 Game Rules
-
-1. **Board**: Standard 15×15 Gomoku board
-2. **Win Condition**: First to connect 5 pieces horizontally, vertically, or diagonally
-3. **Move Limit**: Maximum 100 moves per player
-4. **Piece Symbols**: Player 1 = X, Player 2 = O
-
-### 🚀 Quick Start
-
-#### Requirements
-- Python 3.7+
-- OpenAI API Key
-
-#### Running the Game
-
-1. **Install Dependencies**
-   ```bash
-   pip install openai
-   ```
-
-2. **Set up API Key**
-   ```bash
-   # Method 1: Environment Variable
-   export OPENAI_API_KEY="your-api-key-here"
-   
-   # Method 2: Runtime Input
-   # The game will prompt you to enter your API key
-   ```
-
-3. **Start the Game**
-   
-   **AI vs AI Battle Mode:**
-   ```bash
-   python3 gomoku.py
-   ```
-   
-   **Human vs AI Battle Mode:**
-   ```bash
-   python3 gomoku_human_vs_ai.py
-   ```
-
-### 🛠️ Technical Implementation
-
-#### Core Files
-- `gomoku.py`: AI vs AI main game logic and interface
-- `gomoku_human_vs_ai.py`: Human vs AI battle mode
-- `ai_player.py`: AI decision making and OpenAI API interaction
-
-#### Key Features
-- **Intelligent Prompt System**: Provides clear board state descriptions to AI
-- **Position Validation**: Ensures AI chooses valid and unoccupied positions
-- **Error Retry**: Up to 3 retry attempts for handling AI response errors
-- **Game State Tracking**: Real-time monitoring of game progress and win conditions
-
-### 🎲 AI Battle Strategies
-
-The AI demonstrates strategic capabilities including:
-- **Offensive Strategy**: Attempts to form threatening connections
-- **Defensive Strategy**: Blocks opponent's five-in-a-row attempts
-- **Position Optimization**: Selects strategic board positions
-- **Board Analysis**: Understands current game state
-
----
-
-### 📈 Game Flow
-
-1. **Initialization**: Set up board and initialize AI clients
-2. **Turn-based Play**: Alternating moves between Player 1 (X) and Player 2 (O)
-3. **Move Validation**: Verify each AI move is legal and valid
-4. **Win Detection**: Check for five-in-a-row after each move
-5. **Game End**: Declare winner or draw condition
-
-### 🔧 Customization
-
-You can easily customize the game by:
-- Changing AI models in `PLAYER_MODELS` dictionary
-- Adjusting board size (default: 15×15)
-- Modifying move limits
-- Adding new AI providers beyond OpenAI
 
 ---
 
