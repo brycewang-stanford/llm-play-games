@@ -8,6 +8,8 @@
 |------|------|----------|----------|-------|----------|--------|
 | Gomoku | AI vs AI | GPT-4o | GPT-4o-mini | 100:0 | 100% | ✅ Tested |
 | Gomoku | Human vs AI | Human | GPT-4o | 1:10 | 9.1% | ✅ Tested |
+| Word Chain | AI vs AI | GPT-4o | GPT-4o-mini | -:- | - | 🚧 Testing |
+| Word Chain | Human vs AI | Human | GPT-4o | -:- | - | 🚧 Testing |
 | Chinese Chess | AI vs AI | - | - | -:- | - | 🚧 Coming Soon |
 | Go | AI vs AI | - | - | -:- | - | 🚧 Coming Soon |
 | Chess | AI vs AI | - | - | -:- | - | 🚧 Coming Soon |
@@ -47,6 +49,18 @@ Classic Gomoku game supporting both AI vs AI and Human vs AI modes.
 - Maximum 100 moves per player
 - Intelligent defense and attack strategies
 - Two game modes: AI vs AI and Human vs AI
+
+#### 2. Word Chain Game (词语接龙)
+Location: `/word_chain`
+
+Intelligent word chain game with multiple rule variations and multilingual support.
+
+**Game Features:**
+- Multiple rule types: Tail-to-head, category matching, mixed rules
+- Support for Chinese idioms, English words, and mixed language
+- Two game modes: AI vs AI and Human vs AI
+- Smart validation and scoring system
+- Real-time game progress visualization
 
 **Technical Highlights:**
 - Clear board visualization
@@ -94,18 +108,30 @@ Classic Gomoku game supporting both AI vs AI and Human vs AI modes.
    # The program will prompt for API key input
    ```
 
-3. **Run Gomoku Game**
+3. **Run Games**
    
-   **AI vs AI Mode:**
+   **Gomoku - AI vs AI Mode:**
    ```bash
    cd gomoku
    python3 gomoku.py
    ```
    
-   **Human vs AI Mode:**
+   **Gomoku - Human vs AI Mode:**
    ```bash
    cd gomoku
    python3 gomoku_human_vs_ai.py
+   ```
+   
+   **Word Chain - AI vs AI Mode:**
+   ```bash
+   cd word_chain
+   python3 word_chain_ai_vs_ai.py
+   ```
+   
+   **Word Chain - Human vs AI Mode:**
+   ```bash
+   cd word_chain
+   python3 word_chain_human_vs_ai.py
    ```
 
 ### 📋 Roadmap
@@ -170,6 +196,18 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - 智能防守与进攻策略
 - 两种游戏模式：AI vs AI 和 Human vs AI
 
+#### 2. 词语接龙游戏 (Word Chain)
+位置：`/word_chain`
+
+智能词语接龙游戏，支持多种规则变化和多语言支持。
+
+**游戏特点：**
+- 多种规则类型：首尾相接、同类词语、混合规则
+- 支持中文成语、英文单词和混合语言
+- 两种游戏模式：AI vs AI 和 Human vs AI
+- 智能验证和计分系统
+- 实时游戏进度可视化
+
 **技术亮点：**
 - 清晰的棋盘可视化显示
 - 智能的位置验证与冲突检测
@@ -216,18 +254,30 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
    # 运行程序时会提示输入API密钥
    ```
 
-3. **运行五子棋游戏**
+3. **运行游戏**
    
-   **AI vs AI 模式:**
+   **五子棋 - AI vs AI 模式:**
    ```bash
    cd gomoku
    python3 gomoku.py
    ```
    
-   **人机对战模式:**
+   **五子棋 - 人机对战模式:**
    ```bash
    cd gomoku
    python3 gomoku_human_vs_ai.py
+   ```
+   
+   **词语接龙 - AI vs AI 模式:**
+   ```bash
+   cd word_chain
+   python3 word_chain_ai_vs_ai.py
+   ```
+   
+   **词语接龙 - 人机对战模式:**
+   ```bash
+   cd word_chain
+   python3 word_chain_human_vs_ai.py
    ```
 
 ### 📋 后续计划
