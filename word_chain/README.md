@@ -1,4 +1,4 @@
-# 🔗 Word Chain Game | 词语接龙游戏
+# 🔗 Chinese Idiom Chain Game | 成语接龙游戏
 
 [English](#english) | [中文](#中文)
 
@@ -8,32 +8,33 @@
 
 ### Game Introduction
 
-This is an intelligent Word Chain Game featuring multiple game modes and rule variations:
-1. **AI vs AI**: Two different OpenAI models competing against each other
-2. **Human vs AI**: Human players versus AI opponents
+This is an intelligent Chinese Idiom Chain Game featuring challenging word-to-word matching rules:
+1. **AI vs AI**: Two different OpenAI models competing with Chinese idioms
+2. **Human vs AI**: Human players versus AI opponents in idiom challenges
 
-The game supports various word chain rules including Chinese idioms, English words, and mixed language gameplay with flexible rule systems.
+The game focuses exclusively on four-character Chinese idioms (成语) with strict tail-to-head character matching rules, providing a challenging cultural and linguistic experience.
 
 ### 🌟 Key Features
 
-- **Multiple Rule Types**: Tail-to-head matching, category matching, or mixed rules
-- **AI vs AI Battle**: GPT-4o vs GPT-4o-mini intelligent word chain competition
-- **Human vs AI Mode**: Challenge AI opponents with your vocabulary skills
-- **Multilingual Support**: Chinese idioms, English words, and mixed language gameplay
-- **Real-time Display**: Clear game progress visualization
-- **Smart Validation**: Automatic rule checking and word repetition detection
-- **Scoring System**: Points tracking and performance statistics
+- **Strict Matching Rules**: Last character of previous idiom must exactly match first character of next idiom
+- **Four-Character Idioms Only**: Authentic Chinese 成语 (chéngyǔ) gameplay
+- **AI vs AI Battle**: GPT-4o vs GPT-4o-mini intelligent idiom competition
+- **Human vs AI Mode**: Challenge AI opponents with your Chinese idiom knowledge
+- **Real-time Display**: Clear game progress visualization in Chinese
+- **Smart Validation**: Automatic rule checking and idiom repetition detection
+- **Cultural Challenge**: Deep dive into Chinese language and culture
 
 ### 🎮 Game Rules
 
-#### Rule Types
-1. **Tail-to-Head (首尾相接)**: The first character of your word must match the last character of the previous word
-2. **Same Category (同类词语)**: Your word must be in the same category or theme as the previous word
-3. **Mixed Rules (混合规则)**: Either tail-to-head OR category matching is acceptable
+#### Core Rule
+- Each idiom must be exactly **4 Chinese characters** (四字成语)
+- The **last character** of the previous idiom must **exactly match** the **first character** of the next idiom
+- No repetition of previously used idioms
+- All idioms must be real, valid Chinese idioms
 
 #### Scoring
-- **+1 point** for each valid word played
-- **+5 bonus points** when opponent fails to find a valid word
+- **+1 point** for each valid idiom played
+- **+5 bonus points** when opponent fails to find a valid idiom
 - **Game ends** when maximum rounds reached or a player cannot continue
 
 ### 🚀 Quick Start
@@ -80,23 +81,32 @@ The game supports various word chain rules including Chinese idioms, English wor
 
 **Human vs AI Mode:**
 ```
-🎯 Word Chain Game - Round 5/50
-📊 Score - Human: 4 | AI: 4
-📜 Rule: Tail-to-Head (首尾相接)
+🎯 成语接龙游戏 - 第 5/100 轮
+📊 分数 - 人类: 4 | AI: 3
+📜 规则: 成语的最后一个字必须与下一个成语的第一个字相同
 ============================================================
-📖 Game History: 智慧 -> 慧眼 -> 眼光 -> 光明 -> 明天 -> 天空 -> 空间 -> 间隔
-🎯 Current Word: 隔离
+📖 游戏历史: 一心一意 -> 意气风发 -> 发愤图强 -> 强词夺理 -> 理直气壮
+🎯 当前成语: 壮志凌云
+💡 提示: 下一个成语必须以 '云' 开头
 
-👤 Your turn!
-Enter your word (or 'quit' to exit): 离开
-✅ You played: 离开
+👤 轮到你了!
+请输入你的成语 (输入 'quit' 退出): 云开雾散
+✅ 你出的成语: 云开雾散
 ```
 
 **AI vs AI Battle:**
 ```
-🤖 AI vs AI Word Chain Battle - Round 8/30
-📊 Score - GPT-4o: 7 | GPT-4o-mini: 6
-📜 Rule: Mixed Rules (混合规则)
+🤖 AI vs AI 成语接龙对战 - 第 8/100 轮
+📊 分数 - GPT-4o: 7 | GPT-4o-mini: 6
+📜 规则: 成语的最后一个字必须与下一个成语的第一个字相同
+============================================================
+📖 游戏历史: 龙飞凤舞 -> 舞文弄墨 -> 墨守成规 -> 规行矩步
+🎯 当前成语: 步步高升
+💡 提示: 下一个成语必须以 '升' 开头
+
+🤖 GPT-4o-mini 正在思考...
+🤖 GPT-4o-mini 出的成语: 升官发财
+```
 ======================================================================
 📖 Game History: 开始 -> 始终 -> 终点 -> 点燃 -> 燃烧 -> 烧饭 -> 饭店 -> 店铺
 🎯 Current Word: 铺路
@@ -163,32 +173,33 @@ You can easily customize the game by:
 
 ### 游戏简介
 
-这是一个智能词语接龙游戏，支持多种游戏模式和规则变化：
-1. **AI vs AI**: 两个不同的OpenAI模型互相对战
-2. **Human vs AI**: 人类玩家与AI对战
+这是一个智能成语接龙游戏，专注于中文四字成语的字字相接挑战：
+1. **AI vs AI**: 两个不同的OpenAI模型用成语进行对战
+2. **Human vs AI**: 人类玩家与AI进行成语接龙挑战
 
-游戏支持多种词语接龙规则，包括中文成语、英文单词和混合语言游戏，具有灵活的规则系统。
+游戏专注于四字中文成语（成语），采用严格的尾字接首字规则，提供具有挑战性的文化和语言体验。
 
 ### 🌟 特色功能
 
-- **多种规则类型**: 首尾相接、同类词语或混合规则
-- **AI vs AI对战**: GPT-4o vs GPT-4o-mini 智能词语接龙竞赛
-- **人机对战模式**: 用您的词汇技能挑战AI对手
-- **多语言支持**: 中文成语、英文单词和混合语言游戏
-- **实时显示**: 清晰的游戏进度可视化
-- **智能验证**: 自动规则检查和词语重复检测
-- **计分系统**: 积分跟踪和性能统计
+- **严格匹配规则**: 上一个成语的最后一个字必须与下一个成语的第一个字完全相同
+- **四字成语专用**: 正宗的中文成语（chéngyǔ）游戏体验
+- **AI vs AI对战**: GPT-4o vs GPT-4o-mini 智能成语竞赛
+- **人机对战模式**: 用您的成语知识挑战AI对手
+- **实时中文显示**: 清晰的中文游戏进度可视化
+- **智能验证**: 自动规则检查和成语重复检测
+- **文化挑战**: 深入体验中文语言和文化
 
 ### 🎮 游戏规则
 
-#### 规则类型
-1. **首尾相接**: 您的词语首字符必须与前一个词语的末字符相同
-2. **同类词语**: 您的词语必须与前一个词语属于同一类别或主题
-3. **混合规则**: 首尾相接或同类词语规则均可接受
+#### 核心规则
+- 每个成语必须是**4个中文字符**（四字成语）
+- 上一个成语的**最后一个字**必须与下一个成语的**第一个字完全相同**
+- 不能重复使用之前已经说过的成语
+- 所有成语必须是真实、有效的中文成语
 
 #### 计分规则
-- **+1分** 每个有效词语
-- **+5分** 当对手无法找到有效词语时的奖励分数
+- **+1分** 每个有效成语
+- **+5分** 当对手无法找到有效成语时的奖励分数
 - **游戏结束** 当达到最大轮数或玩家无法继续时
 
 ### 🚀 快速开始
@@ -235,8 +246,32 @@ You can easily customize the game by:
 
 **人机对战模式:**
 ```
-🎯 Word Chain Game - Round 5/50
-📊 Score - Human: 4 | AI: 4
+🎯 成语接龙游戏 - 第 5/100 轮
+📊 分数 - 人类: 4 | AI: 3
+📜 规则: 成语的最后一个字必须与下一个成语的第一个字相同
+============================================================
+📖 游戏历史: 一心一意 -> 意气风发 -> 发愤图强 -> 强词夺理 -> 理直气壮
+🎯 当前成语: 壮志凌云
+💡 提示: 下一个成语必须以 '云' 开头
+
+👤 轮到你了!
+请输入你的成语 (输入 'quit' 退出): 云开雾散
+✅ 你出的成语: 云开雾散
+```
+
+**AI vs AI 对战:**
+```
+🤖 AI vs AI 成语接龙对战 - 第 8/100 轮
+📊 分数 - GPT-4o: 7 | GPT-4o-mini: 6
+📜 规则: 成语的最后一个字必须与下一个成语的第一个字相同
+============================================================
+📖 游戏历史: 龙飞凤舞 -> 舞文弄墨 -> 墨守成规 -> 规行矩步
+🎯 当前成语: 步步高升
+💡 提示: 下一个成语必须以 '升' 开头
+
+🤖 GPT-4o-mini 正在思考...
+🤖 GPT-4o-mini 出的成语: 升官发财
+```
 📜 Rule: Tail-to-Head (首尾相接)
 ============================================================
 📖 Game History: 智慧 -> 慧眼 -> 眼光 -> 光明 -> 明天 -> 天空 -> 空间 -> 间隔

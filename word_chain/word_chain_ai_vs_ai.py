@@ -1,6 +1,6 @@
 import time
 import sys
-from ai_player import get_ai_word, initialize_client_manually, validate_word_chain
+from ai_player import get_ai_idiom, initialize_client_manually, validate_idiom_chain
 
 MAX_ROUNDS = 100
 PLAYER_MODELS = {
@@ -8,11 +8,10 @@ PLAYER_MODELS = {
     2: "gpt-4o-mini"
 }
 
-class AIWordChainGame:
+class AIIdiomChainGame:
     def __init__(self, max_rounds=MAX_ROUNDS):
         self.game_history = []
-        self.current_word = ""
-        self.rule_type = ""
+        self.current_idiom = ""
         self.round_count = 0
         self.max_rounds = max_rounds
         self.scores = {1: 0, 2: 0}
@@ -21,70 +20,39 @@ class AIWordChainGame:
     def display_game_state(self):
         """Display current game state"""
         print("\n" + "="*70)
-        print(f"🤖 AI vs AI Word Chain Battle - Round {self.round_count + 1}/{self.max_rounds}")
-        print(f"📊 Score - {self.player_names[1]}: {self.scores[1]} | {self.player_names[2]}: {self.scores[2]}")
-        print(f"📜 Rule: {self.get_rule_description()}")
+        print(f"🤖 AI vs AI 成语接龙对战 - 第 {self.round_count + 1}/{self.max_rounds} 轮")
+        print(f"📊 分数 - {self.player_names[1]}: {self.scores[1]} | {self.player_names[2]}: {self.scores[2]}")
+        print("📜 规则: 成语的最后一个字必须与下一个成语的第一个字相同")
         print("="*70)
         
         if self.game_history:
-            print(f"📖 Game History: {' -> '.join(self.game_history[-8:])}")  # Show last 8 words
+            print(f"📖 游戏历史: {' -> '.join(self.game_history[-8:])}")  # Show last 8 idioms
             if len(self.game_history) > 8:
-                print(f"    ... and {len(self.game_history) - 8} more words")
+                print(f"    ... 还有 {len(self.game_history) - 8} 个成语")
         
-        if self.current_word:
-            print(f"🎯 Current Word: {self.current_word}")
+        if self.current_idiom:
+            print(f"🎯 当前成语: {self.current_idiom}")
+            print(f"💡 提示: 下一个成语必须以 '{self.current_idiom[-1]}' 开头")
         print()
     
-    def get_rule_description(self):
-        """Get human-readable rule description"""
-        rules = {
-            'tail_to_head': "Tail-to-Head (首尾相接)",
-            'category': "Same Category (同类词语)",
-            'mixed': "Mixed Rules (混合规则)"
-        }
-        return rules.get(self.rule_type, "Unknown")
-    
     def setup_game(self):
-        """Setup game rules and starting word"""
-        print("🤖 AI vs AI Word Chain Battle! 🤖")
-        print("Choose game rule:")
-        print("1. Tail-to-Head (首尾相接) - First character matches last character")
-        print("2. Same Category (同类词语) - Words must be in the same category")
-        print("3. Mixed Rules (混合规则) - Either rule above works")
-        print("4. Auto-select random rule")
+        """Setup game with starting idiom"""
+        print("🤖 AI vs AI 成语接龙对战! 🤖")
+        print("🔹 游戏规则:")
+        print("  - 每个成语必须是四个汉字")
+        print("  - 成语的第一个字必须与上一个成语的最后一个字相同")
+        print("  - 不能重复使用已经说过的成语")
+        print("  - 必须是真实存在的中文成语")
         
-        while True:
-            try:
-                choice = input("Enter your choice (1-4): ").strip()
-                if choice == "1":
-                    self.rule_type = "tail_to_head"
-                    break
-                elif choice == "2":
-                    self.rule_type = "category"
-                    break
-                elif choice == "3":
-                    self.rule_type = "mixed"
-                    break
-                elif choice == "4":
-                    import random
-                    self.rule_type = random.choice(["tail_to_head", "category", "mixed"])
-                    print(f"🎲 Randomly selected: {self.get_rule_description()}")
-                    break
-                else:
-                    print("Invalid choice. Please enter 1, 2, 3, or 4.")
-            except KeyboardInterrupt:
-                print("\nGame cancelled.")
-                return False
+        # Set starting idiom
+        starting_idioms = ["一心一意", "风调雨顺", "龙飞凤舞", "花好月圆", "春回大地"]
+        import random
+        start_idiom = random.choice(starting_idioms)
         
-        # Set starting word
-        starting_words = {
-            'tail_to_head': "龙",
-            'category': "苹果",
-            'mixed': "智慧"
-        }
+        self.current_idiom = start_idiom
+        self.game_history.append(start_idiom)
         
-        self.current_word = starting_words.get(self.rule_type, "开始")
-        self.game_history.append(self.current_word)
+        print(f"🎯 开始成语: {start_idiom}")
         
         return True
     
@@ -95,36 +63,36 @@ class AIWordChainGame:
         player_name = self.player_names[current_player]
         model = PLAYER_MODELS[current_player]
         
-        print(f"🤖 {player_name} is thinking...")
+        print(f"🤖 {player_name} 正在思考...")
         time.sleep(2)  # Simulate thinking time
         
-        word = get_ai_word(self.game_history, self.current_word, self.rule_type, model)
+        idiom = get_ai_idiom(self.game_history, self.current_idiom, model)
         
-        if word is None:
-            print(f"🤖 {player_name} couldn't find a valid word!")
+        if idiom is None:
+            print(f"🤖 {player_name} 找不到合适的成语!")
             other_player = 2 if current_player == 1 else 1
             self.scores[other_player] += 5  # Bonus points for opponent
             return False
         
-        # Validate AI's word
-        if not validate_word_chain(self.current_word, word, self.rule_type):
-            print(f"🤖 {player_name} played an invalid word: {word}")
+        # Validate AI's idiom
+        if not validate_idiom_chain(self.current_idiom, idiom):
+            print(f"🤖 {player_name} 出的成语无效: {idiom}")
             other_player = 2 if current_player == 1 else 1
             self.scores[other_player] += 5
             return False
         
-        if word in self.game_history:
-            print(f"🤖 {player_name} repeated a word: {word}")
+        # Check for repeated idiom
+        if idiom in self.game_history:
+            print(f"🤖 {player_name} 重复了成语: {idiom}")
             other_player = 2 if current_player == 1 else 1
             self.scores[other_player] += 5
             return False
         
-        self.current_word = word
-        self.game_history.append(word)
+        # Valid move
+        self.current_idiom = idiom
+        self.game_history.append(idiom)
         self.scores[current_player] += 1
-        
-        print(f"🤖 {player_name} played: {word}")
-        time.sleep(1)
+        print(f"🤖 {player_name} 出的成语: {idiom}")
         
         self.round_count += 1
         return True
@@ -132,40 +100,40 @@ class AIWordChainGame:
     def show_final_score(self):
         """Display final game results"""
         print("\n" + "="*70)
-        print("🏆 AI BATTLE RESULTS 🏆")
+        print("🏆 AI 对战结果 🏆")
         print("="*70)
-        print(f"📊 Final Score:")
-        print(f"   🤖 {self.player_names[1]}: {self.scores[1]} points")
-        print(f"   🤖 {self.player_names[2]}: {self.scores[2]} points")
+        print(f"📊 最终分数:")
+        print(f"   🤖 {self.player_names[1]}: {self.scores[1]} 分")
+        print(f"   🤖 {self.player_names[2]}: {self.scores[2]} 分")
         
         if self.scores[1] > self.scores[2]:
-            print(f"\n🎉 {self.player_names[1]} wins! 🎉")
+            print(f"\n🎉 {self.player_names[1]} 获胜! 🎉")
         elif self.scores[2] > self.scores[1]:
-            print(f"\n🎉 {self.player_names[2]} wins! 🎉")
+            print(f"\n🎉 {self.player_names[2]} 获胜! 🎉")
         else:
-            print("\n🤝 It's a tie! Both AIs performed equally well! 🤝")
+            print("\n🤝 平局! 两个AI表现相当! 🤝")
         
-        print(f"\n📖 Complete Game History ({len(self.game_history)} words):")
-        for i, word in enumerate(self.game_history):
+        print(f"\n📖 完整游戏历史 ({len(self.game_history)} 个成语):")
+        for i, idiom in enumerate(self.game_history):
             if i == 0:
-                print(f"   🎯 Starting word: {word}")
+                print(f"   🎯 开始成语: {idiom}")
             else:
                 player_num = 1 if (i - 1) % 2 == 0 else 2
                 player_name = self.player_names[player_num]
-                print(f"   {i:2d}. 🤖 {player_name}: {word}")
+                print(f"   {i:2d}. 🤖 {player_name}: {idiom}")
         
-        print(f"\n📊 Game Statistics:")
-        print(f"   🎮 Rule Used: {self.get_rule_description()}")
-        print(f"   🎯 Total Words: {len(self.game_history)}")
-        print(f"   🔄 Rounds Played: {self.round_count}")
+        print(f"\n📊 游戏统计:")
+        print(f"    成语总数: {len(self.game_history)}")
+        print(f"   🔄 对战轮数: {self.round_count}")
         
         # Calculate win rate
         if self.round_count > 0:
             p1_rate = (self.scores[1] / (self.scores[1] + self.scores[2])) * 100 if (self.scores[1] + self.scores[2]) > 0 else 0
             p2_rate = 100 - p1_rate
-            print(f"   📈 Win Rate - {self.player_names[1]}: {p1_rate:.1f}% | {self.player_names[2]}: {p2_rate:.1f}%")
+            print(f"   📈 {self.player_names[1]} 胜率: {p1_rate:.1f}%")
+            print(f"   📈 {self.player_names[2]} 胜率: {p2_rate:.1f}%")
         
-        print("\n🎮 Thanks for watching the AI battle! 🎮")
+        print("\n🎮 感谢观看AI成语接龙对战! 🎮")
 
 def main():
     """Main game function"""
@@ -175,30 +143,29 @@ def main():
         try:
             max_rounds = int(sys.argv[1])
             if max_rounds <= 0:
-                print("Error: Maximum rounds must be a positive integer.")
+                print("错误: 最大轮数必须是正整数.")
                 return
-            print(f"🎮 Custom max rounds: {max_rounds}")
+            print(f"🎮 自定义最大轮数: {max_rounds}")
         except ValueError:
-            print("Error: Invalid max rounds argument. Using default value.")
+            print("错误: 无效的最大轮数参数. 使用默认值.")
     
-    print("🤖 Word Chain Game - AI vs AI Battle 🤖")
+    print("🤖 成语接龙游戏 - AI vs AI 对战 🤖")
     print("=" * 50)
     
     if not initialize_client_manually():
-        print("Unable to initialize OpenAI client. Game cannot start.")
+        print("无法初始化OpenAI客户端. 游戏无法开始.")
         return
     
-    game = AIWordChainGame(max_rounds)
+    game = AIIdiomChainGame(max_rounds)
     
     if not game.setup_game():
         return
     
-    print(f"\n🎮 AI Battle started!")
+    print(f"\n🎮 AI对战开始!")
     print(f"🤖 {game.player_names[1]} vs {game.player_names[2]}")
-    print(f"📜 Rule: {game.get_rule_description()}")
-    print(f"🎯 Starting word: {game.current_word}")
-    print(f"🎲 Maximum rounds: {game.max_rounds}")
-    print("\nLet the battle begin! 🚀")
+    print(f"🎯 开始成语: {game.current_idiom}")
+    print(f"🎲 最大轮数: {game.max_rounds}")
+    print("\n让对战开始! 🚀")
     
     # Game loop - alternating turns
     current_player = 1  # Start with Player 1
@@ -209,7 +176,7 @@ def main():
         current_player = 2 if current_player == 1 else 1  # Switch players
         
         if game.round_count >= game.max_rounds:
-            print("\n⏰ Maximum rounds reached!")
+            print("\n⏰ 已达到最大轮数!")
             break
     
     game.show_final_score()

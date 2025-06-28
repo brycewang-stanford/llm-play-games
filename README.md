@@ -8,8 +8,8 @@
 |------|------|----------|----------|-------|----------|--------|
 | Gomoku (五子棋) | AI vs AI | GPT-4o | GPT-4o-mini | 100:0 | 100% | ✅ Tested |
 | Gomoku (五子棋) | Human vs AI | Human | GPT-4o | 1:10 | 9.1% | ✅ Tested |
-| Word Chain (词语接龙) | AI vs AI | GPT-4o | GPT-4o-mini | -:- | - | 🚧 Testing |
-| Word Chain (词语接龙) | Human vs AI | Human | GPT-4o | -:- | - | 🚧 Testing |
+| Word Chain (成语接龙) | AI vs AI | GPT-4o | GPT-4o-mini | -:- | - | 🚧 Testing |
+| Word Chain (成语接龙) | Human vs AI | Human | GPT-4o | -:- | - | 🚧 Testing |
 | Chinese Chess | AI vs AI | - | - | -:- | - | 🚧 Coming Soon |
 | Go | AI vs AI | - | - | -:- | - | 🚧 Coming Soon |
 | Chess | AI vs AI | - | - | -:- | - | 🚧 Coming Soon |
@@ -50,39 +50,36 @@ Classic Gomoku game supporting both AI vs AI and Human vs AI modes.
 - Intelligent defense and attack strategies
 - Two game modes: AI vs AI and Human vs AI
 
-#### 2. Word Chain Game (词语接龙)
+#### 2. Chinese Idiom Chain Game (成语接龙)
 Location: `/word_chain`
 
-Intelligent word chain game with multiple rule variations and multilingual support.
+Intelligent Chinese idiom chain game with strict tail-to-head character matching rules.
 
 **Game Features:**
-- Multiple rule types: Tail-to-head, category matching, mixed rules
-- Support for Chinese idioms, English words, and mixed language
+- Strict rule: Last character of previous idiom must exactly match first character of next idiom
+- Four-character Chinese idioms (成语) only
 - Two game modes: AI vs AI and Human vs AI
 - Smart validation and scoring system
 - Real-time game progress visualization
+- Duplicate idiom detection
+- Cultural and linguistic challenge
 
 **Technical Highlights:**
-- Clear board visualization
-- Smart position validation and conflict detection
-- Detailed game state tracking
+- Clear game state visualization
+- Smart idiom validation and character matching
+- Detailed game history tracking
 - Multi-retry mechanism ensuring effective AI responses
+- Chinese character encoding support
 
 **Running Example:**
 ```
 =============================================
-  Player 1 (X): 5/100 | Player 2 (O): 4/100
-            Turn: Player 1 (gpt-4o-mini)           
+  第 5/100 轮 | 人类: 3 分 | AI: 2 分
+  当前成语: 龙飞凤舞 | 下一个必须以'舞'开头
 =============================================
-   0  1  2  3  4  5  6  7  8  9  10 11 12 13 14
-  +---------------------------------------------+
-0 |  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . |
-1 |  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . |
-2 |  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . |
-...
-6 |  .  .  .  O  X  O  X  X  O  .  .  .  .  .  . |
-7 |  .  .  .  .  .  .  O  X  O  .  .  .  .  .  . |
-...
+📖 游戏历史: 一心一意 -> 意气风发 -> 发愤图强 -> 强词夺理 -> 理直气壮
+🎯 当前成语: 龙飞凤舞
+💡 提示: 下一个成语必须以 '舞' 开头
 ```
 
 ### 🚀 Quick Start
@@ -196,39 +193,36 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - 智能防守与进攻策略
 - 两种游戏模式：AI vs AI 和 Human vs AI
 
-#### 2. 词语接龙游戏 (Word Chain)
+#### 2. 成语接龙游戏 (Chinese Idiom Chain)
 位置：`/word_chain`
 
-智能词语接龙游戏，支持多种规则变化和多语言支持。
+智能成语接龙游戏，严格的字字相接规则，具有挑战性。
 
 **游戏特点：**
-- 多种规则类型：首尾相接、同类词语、混合规则
-- 支持中文成语、英文单词和混合语言
+- 严格规则：上一个成语的最后一个字必须与下一个成语的第一个字完全相同
+- 只能使用四字成语
 - 两种游戏模式：AI vs AI 和 Human vs AI
 - 智能验证和计分系统
 - 实时游戏进度可视化
+- 重复成语检测
+- 文化和语言挑战
 
 **技术亮点：**
-- 清晰的棋盘可视化显示
-- 智能的位置验证与冲突检测
+- 清晰的游戏状态可视化显示
+- 智能的成语验证与字符匹配
 - 详细的游戏状态追踪
 - 多轮重试机制确保AI响应有效
+- 中文字符编码支持
 
 **运行示例：**
 ```
 =============================================
-  Player 1 (X): 5/100 | Player 2 (O): 4/100
-            Turn: Player 1 (gpt-4o-mini)           
+  第 5/100 轮 | 人类: 3 分 | AI: 2 分
+  当前成语: 龙飞凤舞 | 下一个必须以'舞'开头
 =============================================
-   0  1  2  3  4  5  6  7  8  9  10 11 12 13 14
-  +---------------------------------------------+
-0 |  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . |
-1 |  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . |
-2 |  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . |
-...
-6 |  .  .  .  O  X  O  X  X  O  .  .  .  .  .  . |
-7 |  .  .  .  .  .  .  O  X  O  .  .  .  .  .  . |
-...
+📖 游戏历史: 一心一意 -> 意气风发 -> 发愤图强 -> 强词夺理 -> 理直气壮
+🎯 当前成语: 龙飞凤舞
+💡 提示: 下一个成语必须以 '舞' 开头
 ```
 
 ### 🚀 快速开始
@@ -268,13 +262,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
    python3 gomoku_human_vs_ai.py
    ```
    
-   **词语接龙 - AI vs AI 模式:**
+   **成语接龙 - AI vs AI 模式:**
    ```bash
    cd word_chain
    python3 word_chain_ai_vs_ai.py
    ```
    
-   **词语接龙 - 人机对战模式:**
+   **成语接龙 - 人机对战模式:**
    ```bash
    cd word_chain
    python3 word_chain_human_vs_ai.py
