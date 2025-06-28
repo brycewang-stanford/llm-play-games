@@ -63,11 +63,17 @@ The game supports various word chain rules including Chinese idioms, English wor
    **Human vs AI Mode:**
    ```bash
    python3 word_chain_human_vs_ai.py
+   
+   # Custom max rounds (default: 100)
+   python3 word_chain_human_vs_ai.py 50
    ```
    
    **AI vs AI Battle Mode:**
    ```bash
    python3 word_chain_ai_vs_ai.py
+   
+   # Custom max rounds (default: 100)
+   python3 word_chain_ai_vs_ai.py 30
    ```
 
 ### 🎯 Game Screenshots
@@ -212,11 +218,17 @@ You can easily customize the game by:
    **人机对战模式:**
    ```bash
    python3 word_chain_human_vs_ai.py
+   
+   # 自定义最大轮数（默认：100）
+   python3 word_chain_human_vs_ai.py 50
    ```
    
    **AI vs AI 对战模式:**
    ```bash
    python3 word_chain_ai_vs_ai.py
+   
+   # 自定义最大轮数（默认：100）
+   python3 word_chain_ai_vs_ai.py 30
    ```
 
 ### 🎯 游戏截图
