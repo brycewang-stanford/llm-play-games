@@ -6,14 +6,14 @@ MAX_MOVES_PER_PLAYER = 100
 
 board = [[0 for _ in range(BOARD_SIZE)] for _ in range(BOARD_SIZE)]
 player_move_counts = {1: 0, 2: 0}
-PLAYER_MODELS = {2: "gpt-4o"}  # AI 作为玩家2
+PLAYER_MODELS = {2: "gpt-4o"}  # AI as Player 2
 
 def print_board():
     print("\n" * 2)
     print("=============================================")
     p1_moves = player_move_counts[1]
     p2_moves = player_move_counts[2]
-    print(f"  你 (X): {p1_moves}/{MAX_MOVES_PER_PLAYER} | AI (O): {p2_moves}/{MAX_MOVES_PER_PLAYER}")
+    print(f"  You (X): {p1_moves}/{MAX_MOVES_PER_PLAYER} | AI (O): {p2_moves}/{MAX_MOVES_PER_PLAYER}")
     print("=============================================")
     print("   " + " ".join(f"{i:<2}" for i in range(BOARD_SIZE)))
     print("  +" + "---" * BOARD_SIZE + "+")
@@ -52,26 +52,26 @@ def check_win(player, row, col):
 def get_human_move():
     while True:
         try:
-            move = input("请输入你的落子坐标 (格式: 行,列，例如 7,8): ")
+            move = input("Enter your move coordinates (format: row,col, e.g., 7,8): ")
             row, col = map(int, move.strip().split(","))
             if 0 <= row < BOARD_SIZE and 0 <= col < BOARD_SIZE:
                 if board[row][col] == 0:
                     return row, col
                 else:
-                    print("该位置已被占用，请重新输入。")
+                    print("Position already occupied, please enter again.")
             else:
-                print("坐标超出范围，请输入 0-14 之间的数字。")
+                print("Coordinates out of range, please enter numbers between 0-14.")
         except Exception:
-            print("输入格式错误，请输入如 7,8 这样的格式。")
+            print("Invalid input format, please enter in format like 7,8.")
 
 if __name__ == "__main__":
-    print("--- Gomoku 人机对战 ---")
-    print("你是 Player 1 (X)，AI 是 Player 2 (O)")
-    print(f"每人最多 {MAX_MOVES_PER_PLAYER} 步。输入格式如 7,8")
+    print("--- Gomoku Human vs AI ---")
+    print("You are Player 1 (X), AI is Player 2 (O)")
+    print(f"Maximum {MAX_MOVES_PER_PLAYER} moves per player. Input format like 7,8")
     print("--------------------------")
 
     if not initialize_client_manually():
-        print("无法初始化 OpenAI 客户端，游戏无法开始。")
+        print("Unable to initialize OpenAI client, game cannot start.")
         exit()
 
     current_player = 1
@@ -82,30 +82,30 @@ if __name__ == "__main__":
         if current_player == 1:
             row, col = get_human_move()
         else:
-            print("AI 正在思考...")
+            print("AI is thinking...")
             move = get_ai_move(board, 2, PLAYER_MODELS[2])
             if move:
                 row, col = move
-                print(f"AI 落子: {row},{col}")
+                print(f"AI move: {row},{col}")
             else:
-                print("AI 未能给出有效落子，游戏结束。")
+                print("AI failed to provide a valid move, game ends.")
                 break
         board[row][col] = current_player
         player_move_counts[current_player] += 1
         if check_win(current_player, row, col):
             print_board()
             if current_player == 1:
-                print("\n*** 恭喜你获胜！***\n")
+                print("\n*** Congratulations! You Win! ***\n")
             else:
-                print("\n*** AI 获胜！***\n")
+                print("\n*** AI Wins! ***\n")
             game_over = True
         elif player_move_counts[current_player] >= MAX_MOVES_PER_PLAYER:
             print_board()
-            print(f"\n*** 平局！Player {current_player} 达到步数上限。***\n")
+            print(f"\n*** Draw! Player {current_player} reached move limit. ***\n")
             game_over = True
         elif sum(player_move_counts.values()) == BOARD_SIZE * BOARD_SIZE:
             print_board()
-            print("\n*** 平局！棋盘已满。***\n")
+            print("\n*** Draw! Board is full. ***\n")
             game_over = True
         else:
             current_player = 2 if current_player == 1 else 1
