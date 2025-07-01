@@ -24,6 +24,10 @@ The game focuses exclusively on four-character Chinese idioms (成语) with stri
 - **Smart Validation**: Automatic rule checking and idiom repetition detection
 - **Cultural Challenge**: Deep dive into Chinese language and culture
 
+---
+
+> **Note**: The Splendor game in this repository is incomplete as the author is still clarifying the official rules.
+
 ### 🎮 Game Rules
 
 #### Core Rule
@@ -188,6 +192,10 @@ You can easily customize the game by:
 - **实时中文显示**: 清晰的中文游戏进度可视化
 - **智能验证**: 自动规则检查和成语重复检测
 - **文化挑战**: 深入体验中文语言和文化
+
+---
+
+> **注意**: 本仓库中的Splendor游戏尚不完整，作者仍在澄清官方规则。
 
 ### 🎮 游戏规则
 

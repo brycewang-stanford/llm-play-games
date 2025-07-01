@@ -8,11 +8,11 @@
 |------|------|----------|----------|-------|----------|--------|
 | Gomoku (五子棋) | AI vs AI | GPT-4o | GPT-4o-mini | 100:0 | 100% | ✅ Tested |
 | Gomoku (五子棋) | Human vs AI | Human | GPT-4o | 1:10 | 9.1% | ✅ Tested |
-| Word Chain (成语接龙) | AI vs AI | GPT-4o | GPT-4o-mini | -:- | - | 🚧 Testing |
-| Word Chain (成语接龙) | Human vs AI | Human | GPT-4o | -:- | - | 🚧 Testing |
-| Chinese Chess | AI vs AI | - | - | -:- | - | 🚧 Coming Soon |
-| Go | AI vs AI | - | - | -:- | - | 🚧 Coming Soon |
-| Chess | AI vs AI | - | - | -:- | - | 🚧 Coming Soon |
+| Word Chain (成语接龙) | AI vs AI | GPT-4o | GPT-4o-mini | -:- | - | 🛑 Testing |
+| Word Chain (成语接龙) | Human vs AI | Human | GPT-4o | -:- | - | 🛑 Testing |
+| Chinese Chess | AI vs AI | - | - | -:- | - | 🛑 Coming Soon |
+| Go | AI vs AI | - | - | -:- | - | 🛑 Coming Soon |
+| Chess | AI vs AI | - | - | -:- | - | 🛑 Coming Soon |
 
 > **Note**: Test results are based on multiple game sessions. Individual results may vary.
 > 
@@ -312,3 +312,7 @@ Project Link: [https://github.com/brycewang-stanford/llm-play-games](https://git
 
 ⭐ If this project helps you, please give it a star!
 ⭐ 如果这个项目对你有帮助，请给它一个星标！
+
+---
+
+> **Note**: The Splendor game in this repository is incomplete as the author is still clarifying the official rules.

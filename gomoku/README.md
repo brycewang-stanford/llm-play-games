@@ -1,4 +1,4 @@
-# 🎯 Gomoku AI Battle | 五子棋AI对战
+# 🏹 Gomoku AI Battle | 五子棋AI对战
 
 [English](#english) | [中文](#中文)
 
@@ -227,4 +227,4 @@ You can easily customize the game by:
 
 ---
 
-**Enjoy watching AI models battle it out in this classic strategy game!** 🎮✨
+> **Note**: The Splendor game in this repository is incomplete as the author is still clarifying the official rules.
