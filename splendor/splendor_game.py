@@ -4,10 +4,7 @@ import sys
 import os
 import argparse
 
-# Add the project root directory to the Python path
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-from ai_player import initialize_client_manually, client
+from splendor_ai_player import initialize_client_manually, client
 
 # Define constants for gem types
 GEM_TYPES = ["Diamond", "Sapphire", "Emerald", "Ruby", "Onyx", "Gold"]

@@ -1,7 +1,7 @@
 # gomoku.py
 
 import time
-from ai_player import get_ai_move, initialize_client_manually
+from gomoku_ai_player import get_ai_move, initialize_client_manually
 
 # --- Game Constants ---
 BOARD_SIZE = 15

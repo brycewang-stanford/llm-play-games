@@ -2,6 +2,10 @@ import os
 import re
 import getpass
 from openai import OpenAI
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # --- Client Initialization ---
 api_key = os.environ.get("OPENAI_API_KEY")  # Use environment variable for API key

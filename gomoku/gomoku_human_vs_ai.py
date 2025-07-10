@@ -1,5 +1,5 @@
 import time
-from ai_player import get_ai_move, initialize_client_manually
+from gomoku_ai_player import get_ai_move, initialize_client_manually
 
 BOARD_SIZE = 15
 MAX_MOVES_PER_PLAYER = 100
